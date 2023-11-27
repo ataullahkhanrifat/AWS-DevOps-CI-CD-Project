@@ -49,3 +49,17 @@ The objective is to transition from GitHub to AWS CodeCommit, establishing a ver
 **1. Creating CodeCommit Repository**
 + **Accessing CodeCommit:** Navigated to AWS CodeCommit via the AWS Management Console.
 + **Repository Creation:** Created a repository named 'V Profile' with necessary descriptions and tags, ensuring the AWS CodeGuru option was available for code analysis.
+
+2. IAM User and SSH Key Setup
+IAM User Creation: Established an IAM user with programmatic access and specific repository-level access policies.
+SSH Key Generation: Generated SSH keys using SSH key-gen, uploaded the public key to AWS CodeCommit, and configured the SSH config file for seamless access.
+3. Cloning Repository and Transitioning Code
+Tested Access: Ensured successful authentication using SSH to validate access to the CodeCommit repository.
+Transition from GitHub: Switched the remote repository from GitHub to CodeCommit using git remote rm/add origin, checked out all branches, and pushed all changes to the CodeCommit repository.
+4. Pushing Branches and Tags
+Pushing Branches: Pushed all branches using git push origin with automation.
+```
+for i in `cat /tmp/branches`; do git checkout $i;done
+
+```
+Pushing Tags: Pushed tags using git push tags if applicable to sync all changes to the CodeCommit repository.
