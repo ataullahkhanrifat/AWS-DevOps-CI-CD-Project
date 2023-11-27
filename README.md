@@ -141,6 +141,11 @@ artifacts:
 **3. Deployment and Verification**
 + I successfully created the pipeline, triggering the build and deployment. With the deployment's completion, I verified the successful deployment status and conducted relevant application testing on Beanstalk to ensure functionality.
 
+![link work and show this page](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/25c14536-008d-4e9a-86cb-6c66889c7383)
+
+https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/a6940029-9c44-4bc2-b917-66734876f8c7
+
+
 
 
 
