@@ -9,7 +9,7 @@ With this process, I've successfully completed the CI/CD part, showcasing how AW
 
 ## Beanstalk
 
-Elastic Beanstalk simplifies deployment by abstracting away the need for managing EC2 instances, load balancers, and auto scaling group, offering a streamlined setup for developers. It provides a quick pathway to deploy applications on AWS without deep knowledge of system administration or cloud operations.
+Elastic Beanstalk simplifies deployment by abstracting away the need for managing EC2 instances, load balancers, and auto scaling group, offering a streamlined setup for developers. It provides a quick pathway to deploy AWS applications without deep system administration or cloud operations knowledge.
 
 The setup involves naming the application, selecting a platform (such as Tomcat), configuring environment variables, defining security groups, setting up auto-scaling parameters, and more. 
 
@@ -19,7 +19,7 @@ I configured the auto-scaling group to have a minimum of 2 instances and a maxim
 ![Auto scaling group](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/b0c8ad15-95ea-4edf-93d2-7a224d2a13a5)
 
 #### Deployment policy
-For the deployment policy, I opted for a rolling strategy to ensure updates are applied gradually, minimizing any potential downtime during deployments. This setup aims to balance availability and resource utilization effectively within the application environment.
+I opted for a rolling strategy for the deployment policy to ensure updates are applied gradually, minimizing any potential downtime during deployments. This setup balances availability and resource utilization effectively within the application environment.
 
 ![Deployment policy](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/9b9ee5b7-ec71-49a7-9494-5b59b19502e5)
 
@@ -40,7 +40,7 @@ This section outlines the setup process to establish connectivity between the ap
 
 
 **Step 3: Updating Health Checks**
-+ **Target Group Configuration:** Updated the health check of the target group in the Beanstalk environment to '/login', specific to the application ('vprofile'). Ensured the load balancer settings and stickiness were enabled for seamless traffic management.
++ **Target Group Configuration:** Updated the health check of the target group in the Beanstalk environment to '/login', specific to the application ('vprofile'). I'd like to assure you that the load balancer settings and stickiness were enabled for seamless traffic management.
 
 ## Setting Up AWS CodeCommit for CI/CD Pipeline
 
@@ -50,16 +50,22 @@ The objective is to transition from GitHub to AWS CodeCommit, establishing a ver
 + **Accessing CodeCommit:** Navigated to AWS CodeCommit via the AWS Management Console.
 + **Repository Creation:** Created a repository named 'V Profile' with necessary descriptions and tags, ensuring the AWS CodeGuru option was available for code analysis.
 
-2. IAM User and SSH Key Setup
-IAM User Creation: Established an IAM user with programmatic access and specific repository-level access policies.
-SSH Key Generation: Generated SSH keys using SSH key-gen, uploaded the public key to AWS CodeCommit, and configured the SSH config file for seamless access.
-3. Cloning Repository and Transitioning Code
-Tested Access: Ensured successful authentication using SSH to validate access to the CodeCommit repository.
-Transition from GitHub: Switched the remote repository from GitHub to CodeCommit using git remote rm/add origin, checked out all branches, and pushed all changes to the CodeCommit repository.
-4. Pushing Branches and Tags
-Pushing Branches: Pushed all branches using git push origin with automation.
+**2. IAM User and SSH Key Setup**
++ **IAM User Creation:** Established an IAM user with programmatic access and specific repository-level access policies.
++ **SSH Key Generation:** Generated SSH keys using SSH key-gen, uploaded the public key to AWS CodeCommit and configured the SSH config file for seamless access.
+
+**3. Cloning Repository and Transitioning Code**
++ **Tested Access:** Ensured successful authentication using SSH to validate access to the CodeCommit repository.
++ **Transition from GitHub:** Switched the remote repository from GitHub to CodeCommit using git remote rm/add origin, checked out all branches, and pushed all changes to the CodeCommit repository.
+
+**4. Pushing Branches and Tags**
++ **Pushing Branches:** Pushed all branches using git push origin with automation.
 ```
 for i in `cat /tmp/branches`; do git checkout $i;done
 
 ```
-Pushing Tags: Pushed tags using git push tags if applicable to sync all changes to the CodeCommit repository.
++ **Pushing Tags:** Pushed tags using git push tags if applicable to sync all changes to the CodeCommit repository.
+
+![Aws repo view](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/6c4fe680-247e-4140-a9ec-45a23d333767)
+
+
