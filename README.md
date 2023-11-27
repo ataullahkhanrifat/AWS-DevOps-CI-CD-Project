@@ -59,7 +59,7 @@ The objective is to transition from GitHub to AWS CodeCommit, establishing a ver
 + **Transition from GitHub:** Switched the remote repository from GitHub to CodeCommit using git remote rm/add origin, checked out all branches, and pushed all changes to the CodeCommit repository.
 
 **4. Pushing Branches and Tags**
-+ **Pushing Branches:** Pushed all branches using git push origin with automation.
++ **Pushing Branches:** Pushed all branches using git push origin with simple automation.
 ```
 for i in `cat /tmp/branches`; do git checkout $i;done
 
@@ -67,5 +67,56 @@ for i in `cat /tmp/branches`; do git checkout $i;done
 + **Pushing Tags:** Pushed tags using git push tags if applicable to sync all changes to the CodeCommit repository.
 
 ![Aws repo view](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/6c4fe680-247e-4140-a9ec-45a23d333767)
+
+## AWS CodeBuild Setup: Compile & Create Artifacts
+
+**1. Accessing AWS CodeBuild:**
+
++ Navigated to AWS CodeBuild from the AWS Management Console.
++ Created a project named 'vprofile build'.
++ 
+**2. Source Code Configuration:**
+  
++ Selected the CodeCommit repository and specified the branch (vp-rem) to fetch the source code.
+
+** 3. Environment Setup:**
+
++ Utilized AWS managed Ubuntu image as the operating system for the build environment.
++ Chose Linux as the environment type with specified compute sizes.
+**4. Build Specification File Creation:**
+
++ Constructed a build spec file in YAML format for the build process.
+``` yaml
+version: 0.2
+
+phases:
+  install:
+   runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - apt-get update
+      - apt-get install -y jq 
+      - wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+      - tar xzf apache-maven-3.8.8-bin.tar.gz
+      - ln -s apache-maven-3.8.8 maven
+      - sed -i 's/jdbc.password=admin123/jdbc.password=00000000000/' src/main/resources/application.properties
+      - sed -i 's/jdbc.username=admin/jdbc.username=admin/' src/main/resources/application.properties
+      - sed -i 's/db01:3306/00000000000000000000000000000000000:3306/' src/main/resources/application.properties
+  build:
+    commands:
+      - mvn install
+  post_build:
+    commands:
+       - mvn package
+artifacts:
+  files:
+     - '**/*'
+  base-directory: 'target/vprofile-v2'
+
+```
+
++ Utilized phases such as install, pre_build, build, and post_build.
++ Included commands in each phase to install packages, perform pre-build tasks, execute the main build commands, and specify artifacts.
 
 
