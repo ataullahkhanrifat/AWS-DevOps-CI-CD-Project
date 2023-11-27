@@ -23,3 +23,11 @@ For the deployment policy, I opted for a rolling strategy to ensure updates are 
 
 ![Deployment policy](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/9b9ee5b7-ec71-49a7-9494-5b59b19502e5)
 
+## RDS & Application Setup on AWS Elastic Beanstalk
+
+This section outlines the setup process to establish connectivity between the application running on Elastic Beanstalk and the RDS database, ensuring a functional and healthy application environment.
+
+Step 1: Creating RDS Instance
++ **Creating RDS:** Using the AWS RDS service, I created a MySQL instance through the console, ensuring it was on the free tier for cost considerations.
++ **Configuring Security:** Adjusted security groups to allow connectivity between the RDS instance and the Beanstalk environment by enabling inbound traffic on port 3306 from the Beanstalk security group.
+
