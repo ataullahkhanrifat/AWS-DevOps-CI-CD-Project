@@ -1,4 +1,7 @@
-# AWS-DevOps-CI-CD-Project
+# h1 AWS-DevOps-CI-CD-Project
 
 
-<img width="925" alt="Git interact with AWS" src="https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/7f68df77-8826-4db7-a895-6bbf042133fc">
+
+Introduction
+
+The project revolves around integrating diverse AWS services like AWS CodeCommit for source code management, CodeBuild for artifact creation, and S3 for artifact storage. The deployment strategy involves CodeDeploy targeting AWS Elastic Beanstalk and an RDS database to support the application.
