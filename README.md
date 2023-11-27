@@ -15,5 +15,11 @@ The setup involves naming the application, selecting a platform (such as Tomcat)
 
 #### Auto Scaling Group
 I configured the auto-scaling group to have a minimum of 2 instances and a maximum of 4.
+
 ![Auto scaling group](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/b0c8ad15-95ea-4edf-93d2-7a224d2a13a5)
+
+#### Deployment policy
+For the deployment policy, I opted for a rolling strategy to ensure updates are applied gradually, minimizing any potential downtime during deployments. This setup aims to balance availability and resource utilization effectively within the application environment.
+
+![Deployment policy](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/9b9ee5b7-ec71-49a7-9494-5b59b19502e5)
 
