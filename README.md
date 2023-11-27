@@ -35,6 +35,17 @@ This section outlines the setup process to establish connectivity between the ap
 + **SSH to Beanstalk:** Accessed the Beanstalk instance via SSH to validate connectivity to the RDS by deploying the DB SQL file.
 + **Establishing Connection:** Installed MySQL client and connected to the RDS from the Beanstalk instance to deploy the SQL file successfully, ensuring connectivity between Beanstalk and RDS.
 
+![Processes](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/9d5c6689-816b-4ae2-8926-20d32778e76c)
+
+
+
 **Step 3: Updating Health Checks**
 + **Target Group Configuration:** Updated the health check of the target group in the Beanstalk environment to '/login', specific to the application ('vprofile'). Ensured the load balancer settings and stickiness were enabled for seamless traffic management.
 
+## Setting Up AWS CodeCommit for CI/CD Pipeline
+
+The objective is to transition from GitHub to AWS CodeCommit, establishing a version-controlled environment similar to GitHub for the project.
+
+**1. Creating CodeCommit Repository**
++ **Accessing CodeCommit:** Navigated to AWS CodeCommit via the AWS Management Console.
++ **Repository Creation:** Created a repository named 'V Profile' with necessary descriptions and tags, ensuring the AWS CodeGuru option was available for code analysis.
