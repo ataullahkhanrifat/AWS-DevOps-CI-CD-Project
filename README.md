@@ -13,7 +13,7 @@ Elastic Beanstalk simplifies deployment by abstracting away the need for managin
 
 The setup involves naming the application, selecting a platform (such as Tomcat), configuring environment variables, defining security groups, setting up auto-scaling parameters, and more. 
 
-### Auto Scaling Group
+##### Auto Scaling Group
 I configured the auto-scaling group to have a minimum of 2 instances and a maximum of 4.
 ![Auto scaling group](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/b0c8ad15-95ea-4edf-93d2-7a224d2a13a5)
 
