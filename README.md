@@ -119,4 +119,28 @@ artifacts:
 + Utilized phases such as install, pre_build, build, and post_build.
 + Included commands in each phase to install packages, perform pre-build tasks, execute the main build commands, and specify artifacts.
 
+**5. Artifact Upload to S3:**
+
++ Specified an S3 bucket (specific region for my case, 'US West 1 region') for artifact upload.
++ Set up logging to stream logs to CloudWatch for easier monitoring.
+
+![build and save in s3 bucket](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/43b2de18-e76a-43ba-bd24-8a43129a0d39)
+
+## Build, Deploy & CodePipeline Setup
+
+**1. Build Verification**
++ I initiated the build job to verify its functionality by starting the build process and monitoring the different phases. While checking the CloudWatch logs, I ensured the successful completion of each phase, including any challenges faced during this process.
+
+![succeeded buid job](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/d6fc4f90-7ab2-4948-8fce-d5ab64c005ff)
+
+**2. CodePipeline Creation**
++ To integrate services seamlessly, I created the CodePipeline, documenting the steps involved. I named the pipeline, configured advanced settings, selected the source code (CodeCommit), build provider (CodeBuild), deployment target (Beanstalk), etc. I verified each stage before the pipeline's creation.
+
+![cicd-pipeline source- build- deploy](https://github.com/ataullahkhanrifat/AWS-DevOps-CI-CD-Project/assets/89423331/c4cc733f-d03a-4962-b034-e96eb55be3b7)
+
+**3. Deployment and Verification**
++ I successfully created the pipeline, triggering the build and deployment. With the deployment's completion, I verified the successful deployment status and conducted relevant application testing on Beanstalk to ensure functionality.
+
+
+
 
